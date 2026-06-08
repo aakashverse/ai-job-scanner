@@ -41,7 +41,7 @@ async function generateInterviewReport({ resume, selfDescription, jobDescription
 `
 
     const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.1-flash-lite",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -49,7 +49,7 @@ async function generateInterviewReport({ resume, selfDescription, jobDescription
         }
     })
 
-    console.log(response.text)
+    return JSON.parse(response.text);
 
 }
 
